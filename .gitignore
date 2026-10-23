@@ -1,0 +1,46 @@
+# ── deps ──────────────────────────────────────────────
+node_modules/
+**/node_modules/
+
+# ── build output ──────────────────────────────────────
+dist/
+dist-web/
+dist-app/
+build/
+out/
+installer/
+android/build/
+android/app/build/
+android/.gradle/
+*.apk
+*.aab
+
+# ── 🛑 SECRETS / KEYS — never commit ──────────────────
+.env
+.env.*
+!.env.example
+android/keystore.properties
+*.jks
+*.keystore
+*.pem
+*.p12
+*.pfx
+mcp-server/demo.json
+**/demo.json
+
+# ── PocketBase runtime (keep the setup scripts) ───────
+pocketbase/pocketbase
+pocketbase/pocketbase.exe
+pocketbase/pb_data/
+
+# ── logs / scratch ────────────────────────────────────
+*.log
+dev_pid.txt
+
+# ── local tooling / demo-video working files ──────────
+.claude/
+video/
+
+# ── os ────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

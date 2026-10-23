@@ -1,0 +1,16 @@
+{
+  "//": "extends the shared @ember rail type mapping (10_DESIGN/tsconfig.rails.json) so tsc can see the rails this app imports. Regenerate with `npm run types` in 10_DESIGN after editing a rail.",
+  "extends": "../../../10_DESIGN/tsconfig.rails.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
+  },
+  "include": ["src/renderer/src/**/*"]
+}

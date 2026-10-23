@@ -1,0 +1,8 @@
+GrantHarbor x Alexa+ : self-hosted MCP server for voice-driven grant application
+
+Build, Ship, Shape hackathon (Alexa+ track + AWS Builder + Open Source minis).
+Self-hosted MCP server (Streamable HTTP, spec 2025-11-25+) exposing list_grants,
+get_deadlines, draft_application, preview, send_for_review, approve_and_submit over
+the user's own PocketBase. Human-approved, single-use, replay-safe submission.
+
+Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>

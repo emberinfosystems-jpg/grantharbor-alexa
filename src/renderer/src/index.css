@@ -1,0 +1,94 @@
+@import '@ember/ui/tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GrantGuard — government-professional palette (blues + whites), per the spec.
+   Light by default; the app does NOT auto-follow the OS into near-black. */
+:root {
+  --background: 214 38% 96%;
+  --foreground: 222 47% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 12%;
+  --border: 214 28% 86%;
+  --input: 214 28% 82%;
+  --ring: 216 72% 40%;
+  --muted: 214 32% 92%;
+  --muted-foreground: 216 16% 42%;
+  --primary: 216 76% 34%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 214 32% 91%;
+  --secondary-foreground: 222 40% 20%;
+  --accent: 214 40% 90%;
+  --accent-foreground: 216 76% 30%;
+  --destructive: 0 72% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 152 58% 34%;
+  --warning: 32 90% 42%;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Inter', system-ui, sans-serif;
+}
+
+/* Dark = navy (the selection-blue becomes the background, panels a lighter navy). */
+.dark {
+  --background: 216 52% 12%;
+  --foreground: 210 40% 96%;
+  --card: 216 40% 18%;
+  --card-foreground: 210 40% 96%;
+  --popover: 216 40% 18%;
+  --popover-foreground: 210 40% 96%;
+  --border: 216 28% 28%;
+  --input: 216 28% 30%;
+  --ring: 210 90% 60%;
+  --muted: 216 34% 20%;
+  --muted-foreground: 214 22% 72%;
+  --primary: 210 92% 62%;
+  --primary-foreground: 216 60% 12%;
+  --secondary: 216 34% 24%;
+  --secondary-foreground: 210 40% 96%;
+  --accent: 216 40% 28%;
+  --accent-foreground: 210 40% 96%;
+  --destructive: 0 72% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 152 55% 52%;
+  --warning: 38 92% 60%;
+}
+
+html, body, #root { height: 100%; }
+/* 🛑 Wide content (e.g. the Grants table) must not widen the page: on mobile an expanded
+   layout viewport breaks `position: fixed` — the bottom tab bar scrolled sideways with the
+   page and slid off-screen. Clip horizontal overflow at the page level so fixed stays put.
+   (Wide tables should scroll inside their OWN overflow-x-auto container — follow-up polish.) */
+html, body { overflow-x: hidden; max-width: 100%; }
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+}
+
+/* ── App background: subtle navy/gold chart watermark (finance-serious) ──────
+   Image on <body>, dimmed by a wash so it reads faint behind the app; the
+   shell's top frame is made transparent so it shows through while nav + cards
+   stay solid. Tune --gg-bg-dim (higher = fainter image). */
+:root { --gg-bg-dim: 0.80; }
+html { background-color: hsl(var(--background)); }
+body {
+  background-image: url('./assets/gg-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: hsl(var(--background) / var(--gg-bg-dim));
+  pointer-events: none;
+}
+#root { position: relative; z-index: 1; }
+/* let the watermark bleed through the shell frame; cards/nav keep their own bg */
+#root > *, #root main, #root [role="main"] { background-color: transparent !important; }

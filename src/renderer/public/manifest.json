@@ -1,0 +1,16 @@
+{
+  "name": "GrantHarbor",
+  "short_name": "GrantHarbor",
+  "description": "Discover and track government grants, manage deadlines, and streamline funding applications — local-first, own your data.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf7f2",
+  "theme_color": "#1f2430",
+  "categories": ["productivity", "business", "finance"],
+  "icons": [
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
